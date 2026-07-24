@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : MOHAMED AAKIF ASRAR S</H3>
+<H3>ENTER YOUR REGISTER NO : 212223240088</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : 24-07-2026</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,119 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
 
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+df = pd.read_csv("Churn_Modelling.csv")
+df
+
+df.isnull().sum()
+
+df.fillna(0)
+df.isnull().sum()
+
+df.duplicated()
+
+df['EstimatedSalary'].describe()
+
+scaler = StandardScaler()
+inc_cols = ['CreditScore', 'Tenure', 'Balance', 'EstimatedSalary']
+scaled_values = scaler.fit_transform(df[inc_cols])
+df[inc_cols] = pd.DataFrame(scaled_values, columns = inc_cols, index = df.index)
+df
+
+x = df.iloc[:, :-1]
+y = df.iloc[:, -1]
+
+print("X Values")
+x
+
+print("Y Values")
+y
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
+
+print("X Training data")
+x_train
+
+print("X Testing data")
+x_test
+
+```
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+
+# Read the dataset from drive
+
+
+<img width="1067" height="396" alt="image" src="https://github.com/user-attachments/assets/99dee771-ff13-43e6-8fbf-b3f0929f2b4c" />
+
+
+# Finding Missing Values
+
+
+<img width="208" height="468" alt="image" src="https://github.com/user-attachments/assets/86bc010d-6031-4559-b174-2d7939548a75" />
+
+
+# Handling Missing values
+
+<img width="248" height="495" alt="image" src="https://github.com/user-attachments/assets/21eb5da1-096e-4adc-9be3-d8689fea7a1a" />
+
+
+
+
+
+# Check for Duplicates
+
+<img width="260" height="416" alt="image" src="https://github.com/user-attachments/assets/bcf5ab9d-257a-4466-9183-b7520fb79627" />
+
+# Detect Outliers
+
+
+<img width="313" height="310" alt="image" src="https://github.com/user-attachments/assets/f8768679-8e87-4888-9471-d37f40c2447c" />
+
+
+
+# Normalize the dataset
+
+
+
+
+<img width="1081" height="450" alt="image" src="https://github.com/user-attachments/assets/f0758aee-c056-4f5a-bcc0-6e0363fc014b" />
+
+
+
+
+# Split the dataset into input and output
+
+
+
+
+<img width="1030" height="477" alt="image" src="https://github.com/user-attachments/assets/301c158c-8099-4e7e-8784-2bcb9f575c16" />
+
+
+
+
+<img width="273" height="457" alt="image" src="https://github.com/user-attachments/assets/c8d1a087-617a-463d-8699-8ae9cea3929c" />
+
+# Print the training data and testing data
+
+
+
+
+<img width="1043" height="473" alt="image" src="https://github.com/user-attachments/assets/ab7a61dc-73b3-4ea7-bf0c-8d6ef9b47f2e" />
+
+
+
+
+<img width="1022" height="427" alt="image" src="https://github.com/user-attachments/assets/a2b0ce0a-5815-4e3e-9ce3-33c13f24c8bf" />
+
+
 
 
 ## RESULT:
